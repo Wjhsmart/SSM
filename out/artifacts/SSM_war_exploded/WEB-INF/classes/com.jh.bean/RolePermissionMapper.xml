@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gs.dao.RolePermissionDAO">
+
+	<select id="queryAllPermissionByRoleName" parameterType="string" resultType="string">
+		select permissionName from t_permission p, t_role_permission rp, t_role r
+		where p.permissionId = rp.permissionId and r.roleId = rp.roleId and r.roleName = #{roleName}
+	</select>
+	
+</mapper>
